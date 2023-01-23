@@ -7,10 +7,13 @@ const VideoList=({videos })=> {
         return <VideoItem/>
     })
   return (
-    <div>
-       {renderList}
+    <div className='ui relaxed divided list'>
+        {  renderList}
     </div>
   )
 }
 
 export default VideoList
+
+
+//snpppet is detales of that vedeo in api
