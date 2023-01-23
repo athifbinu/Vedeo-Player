@@ -7,7 +7,7 @@ export default axios.create({
     params:{
         part:'snippet',
         type: "video",
-        maxResults:30,   //totel vedeo collection
+        maxResults:25,   //totel vedeo collection
         key:KEY,
 
     }

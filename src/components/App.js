@@ -1,13 +1,21 @@
 import React from "react";
 import SearchBar from "./SearchBar";
-// import youtube from "../api/YoutubeApi";
-
+import youtube from "../api/YoutubeApi";
+import  VideoList from "./VideoList"
 
 class App extends React.Component {
-  
+        state={videos:[]}
 
-  onTermSubmit =(term) =>{
-    console.log(term)
+  onTermSubmit =async term =>{
+  const respone=await   youtube.get('/search',{         //to access youtubr api
+         params: {
+          q:term,
+              
+         }
+         
+    })
+     this.setState({videos:respone.data.items})
+     console.log(respone.data)
 
   }
 
@@ -18,7 +26,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="ui container">
-        <SearchBar  onFormSubmit ={this.onTermSubmit} />    
+        <SearchBar  onFormSubmit ={this.onTermSubmit} />
+        <VideoList videos={this.state.videos}/>    
         <div className="ui grid">  
           <div className="ui row">
             {/* <div className="eleven wide column">
