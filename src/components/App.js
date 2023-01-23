@@ -31,12 +31,15 @@ class App extends React.Component {
   render() {
        return (
           <div className="ui container">
-            <SearchBar onFormSubmit={this.onTermSubmit}/>
+  
+            <SearchBar onFormSubmit={this.onTermSubmit}/>   
             {/* video is selsected vedeo video */}
             <Videodetailes video={this.state.selectedVideo} />
             {/* videos collection of cideos */}
             <VideoList onVideoSelect={this.onVideoSelect}
-                videos={this.state.videos}/>  /
+                videos={this.state.videos}/>  
+
+                
           </div>
        )
   }
