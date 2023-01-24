@@ -8,7 +8,10 @@ class App extends React.Component {
         state={videos:[], selectedVideo:null}
 
 
-        
+  componentDidMount() {         //opening page remove loading show specific vedeo
+    this.onTermSubmit('interstellar-trailer')
+  }
+
 
   onTermSubmit =async term =>{
   const respone=await   youtube.get('/search',{         //to access youtubr api
@@ -18,6 +21,7 @@ class App extends React.Component {
          }
          
     })
+
      this.setState({
       videos:respone.data.items,
       selectedVideo:respone.data.items[0]   // to remove currently playing vedeo at that search tyme 
@@ -27,7 +31,7 @@ class App extends React.Component {
 
   };
 
-   onVideoSelect=video=>{
+   onVideoSelect=(video)=>{
        this.setState({selectedVideo:video})
    }
 
@@ -50,7 +54,8 @@ class App extends React.Component {
 
               <div className="five wide column">
                  {/* videos collection of cideos */}
-                <VideoList onVideoSelect={this.onVideoSelect}
+                <VideoList
+                 onVideoSelect={this.onVideoSelect}
                 videos={this.state.videos}/>  
               </div>
 
