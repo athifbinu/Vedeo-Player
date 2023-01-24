@@ -4,12 +4,12 @@ const Videodetailes = ({video}) => {
     if (!video) {
         return <div>Loading...</div>
     }
-    const videoSrc =`https://www.youtube.com/embed/${video.id.videoId}`
+    const videoSrc =`https://www.youtube.com/embed/${video.id.videoId}`  //mane video banner
 
     return (
         <div>
             <div className="ui embed">
-                <iframe src={videoSrc}/>
+                <iframe title='video-palyer' src={videoSrc}/>
             </div>
 
             <div className="ui segment">
