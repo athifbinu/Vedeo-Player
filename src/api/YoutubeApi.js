@@ -1,15 +1,15 @@
 import axios from "axios";
 
-const KEY = 'AIzaSyBdsNsdx2EzmNu_FCwolTqsVDU3ijD2tDk';  //api key
+const url = process.env.REACT_APP_BASE_URL
+const key = process.env.REACT_APP_API_KEY
+
 
 export default axios.create({
-    baseURL:'https://www.googleapis.com/youtube/v3',   //base url
-    params:{
-        part:'snippet',
+    baseURL: url,   //base url
+    params: {
+        part: 'snippet',
         type: "video",
-        maxResults:25,   //totel vedeo collection
-        key:KEY,
-
+        maxResults: 25,   //totel vedeo collection
+        key: key,       //key
     }
-    
 })
